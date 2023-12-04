@@ -33,11 +33,11 @@ for(let i = 0; i < team.length; i++){
     let card = document.createElement('div');
     card.classList.add('card');
 
-    let image = `<img src="${team[i].image}" alt="${team[i].name}">`;
-    let name = `<h4>${team[i].name}</h4>`;
-    let role = `<h6>${team[i].role}</h6>`;
+    let employee = `<img src="${team[i].image}" alt="${team[i].name}">
+                    <h4>${team[i].name}</h4>
+                    <h6>${team[i].role}</h6>`;
 
-    card.innerHTML = image + "<br>" + name + role; 
+    card.innerHTML = employee;
 
     div.appendChild(card);
 
