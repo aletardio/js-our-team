@@ -1,5 +1,5 @@
 // Creazione di un array per la rappresentazione dei membri del team
-let user = [
+let team = [
     {name: "Wayne Barnett", role: "Founder & CEO", image: "img/wayne-barnett-founder-ceo.jpg"},
 
     {name: "Angela Caroll", role: "Chief Editor", image: "img/angela-caroll-chief-editor.jpg"},
@@ -13,12 +13,17 @@ let user = [
     {name: "Barbara Ramos", role: "Graphic Designer", image: "img/barbara-ramos-graphic-designer.jpg"}
 ];
 
-console.log(user);
+console.log(team);
 
 // Stampa delle informazioni dei membri del team in console e in DOM
-for(let i = 0; i < user.length; i++){
-    for(let key in user[i]){
-        document.getElementById('user').innerHTML += `<li class="list-group-item">${user[i][key]}</li>`;
-        console.log(user[i][key]);
+for(let i = 0; i < team.length; i++){
+    for(let key in team[i]){
+        document.getElementById('user').innerHTML += `<li class="list-group-item">${team[i][key]}</li>`;
+        console.log(team[i][key]);
     }
 }
+
+// BONUS 1: Trasformare la stringa foto in un'immagine effettiva
+team.forEach(team => {
+    document.body.innerHTML += `<img src="${team.image}" alt="${team.name}">`;
+    });
