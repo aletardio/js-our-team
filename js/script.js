@@ -18,12 +18,29 @@ console.log(team);
 // Stampa delle informazioni dei membri del team in console e in DOM
 for(let i = 0; i < team.length; i++){
     for(let key in team[i]){
-        document.getElementById('user').innerHTML += `<li class="list-group-item">${team[i][key]}</li>`;
+        // document.getElementById('user-card').innerHTML += `<div>${team[i][key]}</div>`;
         console.log(team[i][key]);
     }
 }
 
-// BONUS 1: Trasformare la stringa foto in un'immagine effettiva
-team.forEach(team => {
-    document.body.innerHTML += `<img src="${team.image}" alt="${team.name}">`;
-    });
+// BONUS 1-2: Organizzare i singoli membri in card
+let user_card = document.getElementById('user-card');
+
+for(let i = 0; i < team.length; i++){
+    let div = document.createElement('div');
+    div.classList.add('col-4');
+
+    let card = document.createElement('div');
+    card.classList.add('card');
+
+    let image = `<img src="${team[i].image}" alt="${team[i].name}">`;
+    let name = `<h4>${team[i].name}</h4>`;
+    let role = `<h6>${team[i].role}</h6>`;
+
+    card.innerHTML = image + "<br>" + name + role; 
+
+    div.appendChild(card);
+
+    user_card.appendChild(div);
+
+}
